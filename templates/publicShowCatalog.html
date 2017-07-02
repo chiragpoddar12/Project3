@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Catalog</title>
+    </head>
+    <body>
+        <a href="/login">Login</a>
+        <ul>
+            {% for category in categories %}
+                <li> <a href="/catalog/{{category.name}}/items"> {{category.name}} </a></li>
+            {% endfor %}
+        </ul>
+
+        <H2>Recent Items</H2>
+        <ul>
+            {% for item in items %}
+                {% for category in categories %}
+                    {% if category.id == item.category_id %}
+                        <li> <a href="/catalog/{{category.name}}/{{item.name}}"> {{item.name}}</a> -- {{category.name}}</li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor%}
+        </ul>
+    </body>
+<html>

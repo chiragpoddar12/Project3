@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Catalog</title>
+    </head>
+    <body>
+        <h1>Add Item</h1>
+        <form method='POST' action='#'>
+            <p>Title</p> <input type='text' name='title'/>
+            <p>Description</p> <input type='text' name='description'/>
+            <p>Category</p> <select name = 'category'>
+                                {% for category in categories %}
+                                <option value="{{category.id}}">{{category.name}}</option>
+                                {% endfor %}
+                            </select><br>
+            <input type='submit' value='Save'/>
+        </form>
+    </body>
+<html>
